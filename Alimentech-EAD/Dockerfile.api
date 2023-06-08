@@ -1,0 +1,16 @@
+# Imagem base
+FROM openjdk:17-jdk-slim
+
+# Copia o arquivo JAR da aplicação para dentro do contêiner
+COPY target/Alimentech-0.0.1-SNAPSHOT.jar /app/app.jar
+
+# Define as variáveis de ambiente necessárias
+ENV DB_URL=jdbc:mysql://db:3306/alimentech
+ENV DB_USERNAME=normaluser
+ENV DB_PASSWORD=140203
+
+# Expõe a porta em que a aplicação está executando
+EXPOSE 8080
+
+# Define o comando de inicialização da aplicação
+CMD ["java", "-jar", "/app/app.jar"]

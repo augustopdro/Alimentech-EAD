@@ -1,0 +1,40 @@
+version: '3'
+
+services:
+  api:
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: api-container
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/alimentech
+    depends_on:
+      - db
+    networks:
+      - backend
+
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile.db
+    container_name: db-container
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pedro1402
+      MYSQL_DATABASE: alimentech
+      MYSQL_USER: normaluser
+      MYSQL_PASSWORD: 140203
+    volumes:
+      - db-volume:/var/lib/mysql
+    networks:
+      - backend
+
+networks:
+  backend:
+
+volumes:
+  db-volume:

@@ -1,0 +1,25 @@
+FROM mysql:latest
+
+# Cria um novo usuário para executar o projeto
+RUN useradd -ms /bin/bash newuser
+USER newuser
+
+
+# Define as configurações necessárias para a execução do serviço
+ENV MYSQL_ROOT_PASSWORD=pedro1402
+ENV MYSQL_DATABASE=alimentech
+ENV MYSQL_USER=normaluser
+ENV MYSQL_PASSWORD=140203
+
+# Define o volume para persistência dos dados do banco de dados
+VOLUME /var/lib/mysql
+
+# Verifica se o volume já existe, senão cria
+RUN if [ ! -d /var/lib/mysql ]; then \
+        mkdir /var/lib/mysql && \
+        chown -R mysql:mysql /var/lib/mysql && \
+        chmod 777 /var/lib/mysql \
+    ; fi
+
+# Expõe a porta padrão do MySQL (3306)
+EXPOSE 3306
