@@ -10,7 +10,7 @@ O projeto Alimentech visa oferecer uma solução para pessoas com insegurança a
 - RM 95800 – Yasmin Cabral Dias
 
 ## Link do Pitch
-- https://youtu.be/IXWF7mJd3HI
+- https://youtu.be/Wk6lKO3An-c
 
 ## Visão Geral
 A solução da Alimentech é um aplicativo móvel que oferece uma interface acessível e de fácil utilização para pessoas que desejam aprender práticas de agricultura sustentável. O aplicativo utiliza inteligência artificial generativa, especificamente o ChatGPT, para gerar conteúdo informativo e instrucional adaptado às necessidades e recursos de cada usuário. Os principais recursos são:
